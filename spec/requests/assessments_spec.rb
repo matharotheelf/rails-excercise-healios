@@ -4,7 +4,13 @@ RSpec.describe "Assessments", type: :request do
   describe "GET /index" do
     let!(:assessments) { Array.new(3) { Assessment.create } }
 
-    it "has assessment index route" do
+    it "responds with success" do
+      get "/assessments"
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders assement index page" do
       get "/assessments"
 
       expect(response).to render_template(:index)
