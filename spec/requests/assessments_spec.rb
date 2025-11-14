@@ -5,22 +5,30 @@ RSpec.describe "Assessments", type: :request do
     let!(:assessments) { Array.new(3) { Assessment.create } }
 
     it "responds with success" do
-      get "/assessments"
+      get assessments_path
 
       expect(response).to have_http_status(:success)
     end
 
     it "renders assement index page" do
-      get "/assessments"
+      get assessments_path
 
       expect(response).to render_template(:index)
     end
 
     it "renders all created assessment dates" do
-      get "/assessments"
+      get assessments_path
       assement_dates =  assessments.map(&:created_at).map(&:to_s)
 
       expect(response.body).to include(*assement_dates) 
+    end
+  end
+
+  describe "POST /create" do
+    it "responds with created" do
+      post assessments_path
+
+      expect(response).to have_http_status(:created)
     end
   end
 end
