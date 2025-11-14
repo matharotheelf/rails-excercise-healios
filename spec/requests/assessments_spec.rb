@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Assessments", type: :request do
   describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+    it "has assessment index route" do
+      get "/assessments"
+
+      expect(response).to render_template(:index)
+    end
   end
 end
