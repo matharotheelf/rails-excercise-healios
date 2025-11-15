@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   root "pages#index"
 
   get "assessments", controller: "assessments", action: :index
-  resources :assessments, only: [:create, :show]
+  resources :assessments, only: [:create, :show, :new]
 end

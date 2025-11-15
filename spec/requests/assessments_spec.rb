@@ -41,4 +41,12 @@ RSpec.describe "Assessments", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "GET /new" do
+    it "responds with success" do
+      get new_assessment_path
+
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
