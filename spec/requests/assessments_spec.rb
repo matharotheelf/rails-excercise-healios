@@ -48,5 +48,14 @@ RSpec.describe "Assessments", type: :request do
 
       expect(response).to have_http_status(:success)
     end
+
+    it "renders assessment form" do
+      get new_assessment_path
+
+      expect(response).to render_template(:new)
+      expect(response.body).to include("New Assessment")
+      expect(response.body).to include("Complete Assessment")
+      expect(response.body).to include('form')
+    end
   end
 end

@@ -6,4 +6,8 @@ class AssessmentsController < ApplicationController
   def create
     render :index, status: :created
   end
+
+  def new
+    @assessment = Assessment.new
+  end
 end
