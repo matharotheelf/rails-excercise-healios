@@ -31,4 +31,14 @@ RSpec.describe "Assessments", type: :request do
       expect(response).to have_http_status(:created)
     end
   end
+
+  describe "GET /show" do
+    let!(:assessment) { Assessment.create }
+
+    it "responds with success" do
+      get assessments_path(assessment)
+
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
