@@ -1,2 +1,0 @@
-class Criterion < ApplicationRecord
-end
